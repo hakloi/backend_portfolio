@@ -23,4 +23,9 @@ public class BookDAO {
     public Book show(int id){
         return books.stream().filter(book -> book.getId() == id).findAny().orElse(null);
     }
+
+    public void save(Book book){
+        book.setId(++id);
+        books.add(book);
+    }
 }
