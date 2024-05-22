@@ -12,8 +12,8 @@ public class BookDAO {
 
     {
         books = new ArrayList<>();
-        books.add(new Book(++id, "Грозовой Перевал", "Скандальный роман", "Эмили Бронте"));
-        books.add(new Book(++id, "Джейн Эйер", "Роман о сильной духом девушке", "Шарлотта Бронте"));
+        books.add(new Book(++id, "Wuthering Heights", "Her only novel is the story of inseparable soulmates Heathcliff and Catherine Earnshaw and how betrayal, revenge and brutality led them down a dark path.", "Emily Brontë."));
+        books.add(new Book(++id, "Jane Eyre", "The novel focuses on the titular character as she comes of age, finds her way into the social class, and finds love and happiness with her brooding master.", "Charlotte Brontë"));
     }
 
     public List<Book> index(){

@@ -14,21 +14,20 @@ public class BooksController {
 
     private final BookDAO bookDAO;
 
+    @Autowired
     public BooksController(BookDAO bookDAO) {
         this.bookDAO = bookDAO;
     }
 
     @GetMapping()
-    public String index(Model model){
-        //all books -> view
+    public String index(Model model) {
         model.addAttribute("books", bookDAO.index());
         return "books/index";
     }
 
     @GetMapping("/{id}")
-    public String show(@PathVariable("id") int id, Model model){
-        // one book from DAO -> view
-        model.addAttribute("book", bookDAO.show(id) );
+    public String show(@PathVariable("id") int id, Model model) {
+        model.addAttribute("book", bookDAO.show(id));
         return "books/show";
     }
 }
