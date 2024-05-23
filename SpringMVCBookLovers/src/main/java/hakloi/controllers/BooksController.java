@@ -2,9 +2,13 @@ package hakloi.controllers;
 
 import hakloi.DAO.BookDAO;
 import hakloi.model.Book;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -36,7 +40,12 @@ public class BooksController {
     }
 
     @PostMapping()
-    public String create(@ModelAttribute("book") Book book){
+    public String create(@ModelAttribute("book") @Valid Book book,
+                        BindingResult bindingResult){
+
+        if (bindingResult.hasErrors()){
+            return "books/new";
+        }
         bookDAO.save(book);
         return "redirect:/books";
     }
@@ -48,7 +57,12 @@ public class BooksController {
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("book") Book book, @PathVariable("id") int id){
+    public String update(@ModelAttribute("book") @Valid Book book, BindingResult bindingResult, 
+                        @PathVariable("id") int id){
+        
+        if (bindingResult.hasErrors()){
+            return "books/edit";
+        }
         bookDAO.update(id, book);
         return "redirect:/books";
     }

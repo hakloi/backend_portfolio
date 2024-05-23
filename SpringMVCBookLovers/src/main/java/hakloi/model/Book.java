@@ -1,9 +1,18 @@
 package hakloi.model;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class Book {
     private int id;
+
+    @NotEmpty(message = "Name should not be empty")
+    @Size(min=1, max=30, message = "Name should be between 1 and 30 symbols")
     private String name;
+
     private String descr;
+
+    @NotEmpty(message = "Book can not have the author")
     private String author;
 
     public Book(){
