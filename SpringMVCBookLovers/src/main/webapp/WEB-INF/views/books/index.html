@@ -5,10 +5,14 @@
     <title>Our library</title>
 </head>
 <body>
-In our library you can find the current book by name:
+In our library you can find the current book its by name:
 <div th:each="book : ${books}">
     <a th:href="@{/books/{id}(id=${book.getId()})}" th:text="${book.getId() + '. ' + book.getName()}"></a>
 </div>
+
+<br/>
+<hr/>
+<a href="books/new">Add new book</a>
 
 </body>
 </html>

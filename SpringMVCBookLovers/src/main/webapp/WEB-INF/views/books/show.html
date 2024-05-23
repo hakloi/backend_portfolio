@@ -8,5 +8,15 @@
 <p th:text="${book.getId() + '. ' + book.getName()}">id - name</p>
 <p th:text="${book.getAuthor()}">author</p>
 <p th:text="${book.getDescr()}">description</p>
+
+<br/>
+<form th:method="DELETE" th:action="@{/books/{id}(id=${book.getId()})}">
+    <input type="submit" value="Delete"/>
+
+<hr/>
+
+Do you find any mistakes on this webpage? Help our website and
+<a th:href="@{/books/{id}/edit(id=${book.getId()})}">edit it!</a>
+
 </body>
 </html>

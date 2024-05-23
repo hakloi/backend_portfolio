@@ -28,4 +28,16 @@ public class BookDAO {
         book.setId(++id);
         books.add(book);
     }
+
+    public void update(int id, Book updatedBook){
+        Book bookToBeUpdated = show(id);
+
+        bookToBeUpdated.setName(updatedBook.getName());
+        bookToBeUpdated.setAuthor(updatedBook.getAuthor());
+        bookToBeUpdated.setDescr(updatedBook.getDescr());
+    }
+
+    public void delete(int id){
+        books.removeIf(b -> b.getId() == id);
+    }
 }
